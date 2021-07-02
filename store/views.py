@@ -38,9 +38,9 @@ def checkout(request):
 
 	payment = client.order.create({'amount': order_amount, 'currency' : order_currency,})
 
-	
+
 	data = cartData(request)
-	
+
 	cartItems = data['cartItems']
 	order = data['order']
 	items = data['items']
