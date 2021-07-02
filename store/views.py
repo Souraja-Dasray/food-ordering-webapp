@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 import datetime
+import razorpay
 from .models import *
 from .utils import cookieCart, cartData, guestOrder
 
@@ -28,6 +29,16 @@ def cart(request):
 	return render(request, 'store/cart.html', context)
 
 def checkout(request):
+	
+	client = razorpay.Client(auth=("rzp_test_EA6IA1F18zib3c", "jcbdcts7WyGH2LEZQkzlS6kA"))
+	order_amount = 50000
+	order_currency = 'INR'
+	order_receipt = 'order_rcptid_11'
+	notes = {'Shipping address': 'Bommanahalli, Bangalore'}   # OPTIONAL
+
+	payment = client.order.create({'amount': order_amount, 'currency' : order_currency,})
+
+	
 	data = cartData(request)
 	
 	cartItems = data['cartItems']
