@@ -1,7 +1,32 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
-
+<style>
+.btn-primary {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.btn-primary::after{
+    content: '»';
+    font-size: 23px;
+    position: absolute;
+    opacity: 0;
+    top: 4.2px;
+    right: -20px;
+    transition: 0.5s;
+}
+.btn-primary:hover {
+    font-style: italic;
+    padding-right: 24px;
+    padding-left: 8px;
+}
+.btn-primary:hover:after {
+    opacity: 1;
+    right: 10px;
+}
+</style>
 <div class="row">
 	<div class="col-lg-6">
 		<div class="box-element" id="form-wrapper">
@@ -37,9 +62,14 @@
 		</div>
         <br>
         <div class="box-element hidden" id="payment-info">
-            <small>Payment Options</small>
+        <small>Payment Options :</small>
+        <ul>
 	    <!--<button id="make-payment">Make payment</button>-->
-	    <button id="rzp-button1">Pay through Razorpay</button>
+	    <br><button type="button" class="btn btn-primary btn-block" id="rzp-button1" >Proceed To Pay Now</button>
+        <br>
+        <br>
+        <button type="button" class="btn btn-secondary btn-block" onclick="JavaScript:alert('Order will reach to you soon')">Cash On Delivery</button>
+        </ul>
         </div>
 	</div>
 
@@ -77,7 +107,7 @@ var options = {
     "key": "rzp_test_EA6IA1F18zib3c", // Enter the Key ID generated from the Dashboard
     "amount": paisa, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
-    "name": "Ecom",
+    "name": "Jus2Mins",
     "image": "https://example.com/your_logo",
     "order_id": "{{payment.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
     "handler": function (response){
@@ -89,12 +119,12 @@ var options = {
 		
     },
     "prefill": {
-        "name": "Gaurav Kumar",
-        "email": "gaurav.kumar@example.com",
-        "contact": "9999999999"
+        "name": "Samim Souraja",
+        "email": "samim.souraja@kiit.ac.in",
+        "contact": "8116465928"
     },
     "notes": {
-        "address": "Razorpay Corporate Office"
+        "address": "Kolkata, West Bengal"
     },
     "theme": {
         "color": "#3399cc"
