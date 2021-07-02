@@ -1,10 +1,65 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+from django.shortcuts import render,redirect
+from django.http import JsonResponse, response
 import json
-import datetime
 import razorpay
-from .models import *
+import datetime
+from .models import * 
+from json import JSONEncoder
+import jsonpickle
 from .utils import cookieCart, cartData, guestOrder
+from django.contrib.auth.forms import UserCreationForm
+from django.views.decorators.csrf import csrf_exempt
+from .forms import CreateUserForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+
+@csrf_exempt
+def registerPage(request):
+	if request.user.is_authenticated:
+		return redirect('store')
+	else:
+		form = CreateUserForm()
+		if request.method == 'POST':
+			form = CreateUserForm(request.POST)
+			if form.is_valid():
+				user=form.save()
+				Customer.objects.create(
+					user=user,
+				)
+				username= form.cleaned_data.get('username')    
+				messages.success(request, 'User ' + username + ' Registered')
+
+				return redirect('login')
+			
+
+		context = {'form':form}
+		return render(request, 'store/register.html', context)
+
+
+
+@csrf_exempt
+def loginPage(request):
+	if request.user.is_authenticated:
+		return redirect('home')
+	else:
+		if request.method == 'POST':
+			username = request.POST.get('username')
+			password =request.POST.get('password')
+
+			user = authenticate(request, username=username, password=password)
+
+			if user is not None:
+				login(request, user)
+				return redirect('store')
+			else:
+				messages.info(request, 'Username OR password is incorrect')
+
+		context = {}
+		return render(request, 'store/login.html', context)
+
+def logoutUser(request):
+	logout(request)
+	return redirect('login')
 
 def store(request):
 	data = cartData(request)
@@ -29,7 +84,7 @@ def cart(request):
 	return render(request, 'store/cart.html', context)
 
 def checkout(request):
-	
+
 	client = razorpay.Client(auth=("rzp_test_EA6IA1F18zib3c", "jcbdcts7WyGH2LEZQkzlS6kA"))
 	order_amount = 50000
 	order_currency = 'INR'
@@ -38,14 +93,14 @@ def checkout(request):
 
 	payment = client.order.create({'amount': order_amount, 'currency' : order_currency,})
 
-
+	
 	data = cartData(request)
-
+	
 	cartItems = data['cartItems']
 	order = data['order']
 	items = data['items']
 
-	context = {'items':items, 'order':order, 'cartItems':cartItems}
+	context = {'items':items, 'order':order, 'cartItems':cartItems,}
 	return render(request, 'store/checkout.html', context)
 
 def updateItem(request):
