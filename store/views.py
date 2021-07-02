@@ -4,8 +4,6 @@ import json
 import razorpay
 import datetime
 from .models import * 
-from json import JSONEncoder
-import jsonpickle
 from .utils import cookieCart, cartData, guestOrder
 from django.contrib.auth.forms import UserCreationForm
 from django.views.decorators.csrf import csrf_exempt
