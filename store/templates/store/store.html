@@ -4,8 +4,10 @@
 <div class="row">
     {% for product in products %}
 	<div class="col-lg-4">
-
-        <img src="{{product.imageURL}}" class="img-thumbnail" alt="...">
+        <figure class="figure">
+            <img src="{{product.imageURL}}" class="img-thumbnail" alt="...">
+            <figcaption class="figure-caption"><big>Sample Text</big></figcaption>
+        </figure>
         <div class="box-element product">
             <h6><strong>{{product.name}}</strong></h6>
             <hr>

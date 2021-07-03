@@ -26,6 +26,12 @@
     opacity: 1;
     right: 10px;
 }
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 </style>
 <div class="row">
 	<div class="col-lg-6">
@@ -41,19 +47,16 @@
                 </div>
                 <div id="shipping-info">
                     <hr>
-                    <p>Shipping Information:</p>
+                    <p>Delivery Information:</p>
                     <hr>
                     <div class="form-field">
-                        <input class="form-control" type="text" name="address" placeholder="Address..">
+                        <input class="form-control" type="text" name="address" placeholder="Hostel Name..">
                     </div>
                     <div class="form-field">
-                        <input class="form-control" type="text" name="city" placeholder="City..">
+                        <input class="form-control" type="text" name="city" placeholder="Floor..">
                     </div>
                     <div class="form-field">
-                        <input class="form-control" type="text" name="state" placeholder="State..">
-                    </div>
-                    <div class="form-field">
-                        <input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
+                        <input class="form-control" type="text" name="state" placeholder="Room No. ..">
                     </div>
                 </div>
                 <hr>
@@ -70,6 +73,8 @@
         <br>
         <button type="button" class="btn btn-secondary btn-block" onclick="JavaScript:alert('Order will reach to you soon')">Cash On Delivery</button>
         </ul>
+        <br>
+        <img class="center" src="https://iconape.com/wp-content/files/jg/183415/png/razorpay-with-all-cards-upi-long-logo.png">
         </div>
 	</div>
 
@@ -107,16 +112,14 @@ var options = {
     "key": "rzp_test_EA6IA1F18zib3c", // Enter the Key ID generated from the Dashboard
     "amount": paisa, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
-    "name": "Jus2Mins",
-    "image": "https://example.com/your_logo",
+    "name": "J u s 2 M i n s",
+    "image":"{% static 'images/logoo.png' %}",
     "order_id": "{{payment.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
     "handler": function (response){
         alert(response.razorpay_payment_id);
         alert(response.razorpay_order_id);
         alert(response.razorpay_signature)
-		
 	    submitFormData()
-		
     },
     "prefill": {
         "name": "Samim Souraja",
