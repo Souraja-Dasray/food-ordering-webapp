@@ -23,6 +23,8 @@ def registerPage(request):
 				user=form.save()
 				Customer.objects.create(
 					user=user,
+					name=user.username,
+					email=user.email,
 				)
 				username= form.cleaned_data.get('username')    
 				messages.success(request, 'User ' + username + ' Registered')
