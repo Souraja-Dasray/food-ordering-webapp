@@ -37,6 +37,7 @@
 	<div class="col-lg-6">
 		<div class="box-element" id="form-wrapper">
             <form id="form">
+		    {% csrf_token %}
                 <div id="user-info">
                     <div class="form-field">
                         <input required class="form-control" type="text" name="name" placeholder="Name..">
@@ -47,19 +48,21 @@
                 </div>
                 <div id="shipping-info">
                     <hr>
-                    <p>Delivery Information:</p>
-                    <hr>
-                    <div class="form-field">
-                        <input class="form-control" type="text" name="address" placeholder="Hostel Name..">
-                    </div>
-                    <div class="form-field">
-                        <input class="form-control" type="text" name="city" placeholder="Floor..">
-                    </div>
-                    <div class="form-field">
-                        <input class="form-control" type="text" name="state" placeholder="Room No. ..">
-                    </div>
-                </div>
-                <hr>
+			<div class="form-field">
+				<input class="form-control" type="text" name="roomno" placeholder="Room No..">
+			</div>
+			<div class="form-field">
+				<input class="form-control" type="text" name="floor" placeholder="Floor..">
+			</div>
+			<div class="form-field">
+				<input class="form-control" type="text" name="hostel" placeholder="Hostel..">
+			</div>
+			<div class="form-field">
+				<input class="form-control" type="text" name="block" placeholder="Block..">
+			</div>
+		</div>
+
+		<hr>
                 <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
             </form>
 		</div>
@@ -116,9 +119,6 @@ var options = {
     "image":"{% static 'images/logoo.png' %}",
     "order_id": "{{payment.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
     "handler": function (response){
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature)
 	    submitFormData()
     },
     "prefill": {
@@ -197,11 +197,11 @@ document.getElementById('rzp-button1').onclick = function(e){
         }
 
         if (shipping != 'False'){
-            shippingInfo.address = form.address.value
-            shippingInfo.city = form.city.value
-            shippingInfo.state = form.state.value
-            shippingInfo.zipcode = form.zipcode.value
-        }
+		shippingInfo.roomno = form.roomno.value
+		shippingInfo.floor = form.floor.value
+		shippingInfo.hostel = form.hostel.value
+		shippingInfo.block = form.block.value
+	}
 
         if (user == 'AnonymousUser'){
             userFormData.name = form.name.value
