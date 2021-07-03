@@ -126,6 +126,7 @@ def updateItem(request):
 
 	return JsonResponse('Item was added', safe=False)
 
+@csrf_exempt
 def processOrder(request):
 	transaction_id = datetime.datetime.now().timestamp()
 	data = json.loads(request.body)
@@ -147,10 +148,10 @@ def processOrder(request):
 		ShippingAddress.objects.create(
 		customer=customer,
 		order=order,
-		address=data['shipping']['address'],
-		city=data['shipping']['city'],
-		state=data['shipping']['state'],
-		zipcode=data['shipping']['zipcode'],
+		roomno=data['shipping']['roomno'],
+		floor=data['shipping']['floor'],
+		hostel=data['shipping']['hostel'],
+		block=data['shipping']['block'],
 		)
 
 	return JsonResponse('Payment submitted..', safe=False)
