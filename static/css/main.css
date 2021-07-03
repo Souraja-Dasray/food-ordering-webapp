@@ -43,7 +43,7 @@ p11 {
 }
 
 .bg-dark {
-    background-color: #1a1b1b!important;
+    background-color: #1b1d1d!important;
 }
 
 #cart-icon {
@@ -94,8 +94,8 @@ p11 {
     border: none;
     color: #fff;
     text-align: center;
-    font-size: 18px;
-    padding: 13px;
+    font-size: 16.8px;
+    padding: 12px;
     width: 160px;
     transition: all 0.5s;
     cursor: pointer;
