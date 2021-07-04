@@ -140,10 +140,15 @@ def processOrder(request):
 		customer, order = guestOrder(request, data)
 
 	total = float(data['form']['total'])
-	order.transaction_id = transaction_id
+	razorpay_id=str(data['transaction_id'])
+	if razorpay_id=="":
+		order.transaction_id = transaction_id
+	else:
+		order.transaction_id = razorpay_id
 
 	if total == order.get_cart_total:
 		order.complete = True
+		order.amount=order.get_cart_total
 	order.save()
 
 	if order.shipping == True:
