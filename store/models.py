@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.fields import NullBooleanField
 from django.db.models.fields.related import ForeignKey
+
 # Create your models here.
 
 class Customer(models.Model):
@@ -35,6 +36,7 @@ class Order(models.Model):
     date_ordered=models.DateTimeField(auto_now_add=True)
     complete=models.BooleanField(default=False,null=True,blank=False)
     transaction_id=models.CharField(max_length=200,null=True)
+    amount=models.DecimalField(max_digits=7,decimal_places=2,null=True)
     
     def  __str__(self):
         return str(self.id)
