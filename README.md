@@ -1,1 +1,1 @@
-# food-ordering-webapp
+# Hostel Maggi Ordering Web App
