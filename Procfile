@@ -1,1 +1,1 @@
-web: gunicorn maggieorder.wsgi --log-file -
+web: gunicorn ecommerce.wsgi --log-file -
