@@ -8,10 +8,9 @@ A full stack web app built from scratch for ordering maggi at hostel. Any studen
 4. All the information about the customer, ordered items within a particular order along with the delivery address provided by the customer(here room no and hostel block) and transaction id (provided by razorpay in case of online payment and system generated id in case of cash order) is stored in the backend. 
 
 # Tech Stacks used : 
-1. Html, Css, JavaScript, Bootstrap for the front-end.
+1. Html, CSS, JavaScript, Bootstrap for the front-end.
 2. Python Framework Django in the back-end.
 3. database used is Sqlite which is provided by default by Django.
 
 # Developers
 Developed by Souraja Dasray and Samim Hossain Mondal 3rd year B.Tech IT student @ KIIT University.
-Happy Coding! :)
