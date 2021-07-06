@@ -13,7 +13,7 @@ A full stack web app built from scratch for ordering maggi at hostel. Any studen
 3. database used is Sqlite which is provided by default by Django.
 
 # Visit the hosted website :
-Just2Mins[https://hostelmaggi.pythonanywhere.com/]
+Just2Mins - [https://hostelmaggi.pythonanywhere.com/]
 --
 # Developers
 Developed by Souraja Dasray and Samim Hossain Mondal 3rd year B.Tech IT student @ KIIT University.
