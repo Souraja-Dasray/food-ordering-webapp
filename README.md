@@ -14,6 +14,6 @@ A full stack web app built from scratch for ordering maggi at hostel. Any studen
 
 # Visit the hosted website
 Just2Mins : [https://hostelmaggi.pythonanywhere.com]
---
+
 # About the Developers
 Developed by Souraja Dasray and Samim Hossain Mondal - 3rd year B.Tech IT students @ KIIT University.
