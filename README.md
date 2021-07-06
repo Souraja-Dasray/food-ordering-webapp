@@ -1,4 +1,4 @@
-# Just2Mins - food-ordering-webapp
+# Just2Mins - Hostel_Maggi_Ordering
 A full stack web app built from scratch for ordering maggi at hostel. Any student can start selling maggi for some extra cash in hand and other students can place an order using the app.
 
 # Features
