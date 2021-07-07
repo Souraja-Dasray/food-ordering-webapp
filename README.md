@@ -13,8 +13,8 @@ A full stack web app built from scratch for ordering maggi at hostel. Any studen
 3. database used is Sqlite which is provided by default by Django.
 
 # Visit the hosted website
-Just2Mins : [https://hostelmaggi.pythonanywhere.com]
-To use the online payment gateway in the app please use the testing card details provided by Razorpay.
+Just2Mins : [https://hostelmaggi.pythonanywhere.com] <br>
+To use the online payment gateway in the app please use the testing card details provided by Razorpay.<br>
 Card Number : 4111 1111 1111 1111  Expiry : 11/23  CVV : 111
 
 # About the Developers
