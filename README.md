@@ -14,6 +14,8 @@ A full stack web app built from scratch for ordering maggi at hostel. Any studen
 
 # Visit the hosted website
 Just2Mins : [https://hostelmaggi.pythonanywhere.com]
+To use the online payment gateway in the app please use the testing card details provided by Razorpay.
+Card Number : 4111 1111 1111 1111  Expiry : 11/23  CVV : 111
 
 # About the Developers
 Developed by Souraja Dasray and Samim Hossain Mondal - 3rd year B.Tech IT students @ KIIT University.
