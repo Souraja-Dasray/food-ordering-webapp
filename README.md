@@ -10,7 +10,7 @@ A full stack web app built from scratch for ordering maggi at hostel. Any studen
 # Tech Stacks used
 1. Html, CSS, JavaScript, Bootstrap for the front-end.
 2. Python Framework Django in the back-end.
-3. database used is Sqlite which is provided by default by Django.
+3. Database used is Sqlite which is provided by default by Django.
 
 # Visit the hosted website
 Just2Mins : [https://hostelmaggi.pythonanywhere.com] <br>
